@@ -1,3 +1,6 @@
+/* For layer order */
+@layer reset, base;
+
 @layer reset {
   /* the reset here */
   *,
@@ -75,4 +78,127 @@
 
 @layer base {
   /* :root custom props + base/global styles here */
+  :root {
+    /*root custom colors here */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray-100: hsl(0, 2%, 79%);
+    --clr-brand-400: hsl(25, 88%, 75%);
+    --clr-brand-500: hsl(25, 88%, 66%);
+    --clr-green-400: hsl(143, 19%, 49%);
+    --clr-green-500: hsl(143, 38%, 37%);
+    --clr-green-600: hsl(145, 29%, 19%);
+    --clr-brown-500: hsl(10, 5%, 25%);
+    --clr-brown-600: hsl(9, 7%, 21%);
+    --clr-brown-700: hsl(9, 8%, 16%);
+    --clr-brown-800: hsl(0, 6%, 15%);
+    --clr-brown-900: hsl(0, 6%, 13%);
+
+    --clr-orange-500: hsl(28, 43%, 28%);
+    --clr-red-500: hsl(359, 34%, 24%);
+    --clr-teal-500: hsl(186, 42%, 25%);
+
+    /* root custom fonts here */
+
+    --ff-heading: "Outfit", sans-serif;
+    --ff-body: "Fira Sans", sans-serif;
+
+    --fs-300: 0.875rem;
+    --fs-400: 1rem;
+    --fs-500: 1.125rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.5rem;
+    --fs-800: 2rem;
+    --fs-900: 3.75rem;
+    --fs-1000: 3.75rem;
+
+    @media (width > 760px) {
+      --fs-500: 1.25rem;
+      --fs-600: 1.5rem;
+      --fs-700: 2rem;
+      --fs-800: 3rem;
+      --fs-900: 5rem;
+      --fs-1000: 7.5rem;
+    }
+  }
+
+  :root {
+    /*root custom primitives colors here */
+    --text-main: var(--clr-gray-100);
+    --text-high-contrast: var(--clr-white);
+    --text-brand: var(--clr-brand-500);
+    --text-brand-light: var(--clr-brand-400);
+
+    --background-accent-light: var(--clr-green-400);
+    --background-accent-main: var(--clr-green-500);
+    --background-accent-dark: var(--clr-green-600);
+
+    --background-extra-light: var(--clr-brown-500);
+    --background-light: var(--clr-brown-600);
+    --background-main: var(--clr-brown-700);
+    --background-dark: var(--clr-brown-800);
+    --background-extra-dark: var(--clr-brown-900);
+
+    /*root custom primitives font here */
+    --font-size-heading-sm: var(--fs-700);
+    --font-size-heading-regular: var(--fs-800);
+    --font-size-heading-lg: var(--fs-900);
+    --font-size-heading-xl: var(--fs-1000);
+
+    --font-size-sm: var(--fs-300);
+    --font-size-regular: var(--fs-400);
+    --font-size-md: var(--fs-500);
+    --font-size-lg: var(--fs-600);
+
+    /* primitives borders here */
+
+    --border-radius-1: 0.25rem;
+    --border-radius-2: 0.5rem;
+    --border-radius-3: 0.75rem;
+  }
+
+  /* global styles here */
+  html {
+    font-family: var(--ff-body);
+    line-height: 1.6;
+  }
+
+  body {
+    font-size: var(--font-size-regular);
+    color: var(--text-main);
+    background-color: var(--background-main);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    color: var(--text-high-contrast);
+  }
+
+  h1 {
+    font-size: var(--font-size-heading-lg);
+  }
+
+  a {
+    color: var(--text-high-contrast);
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--text-brand-light);
+  }
+}
+
+@layer utilities {
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 }
